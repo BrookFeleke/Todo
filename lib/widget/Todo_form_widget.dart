@@ -50,14 +50,14 @@ class TodoFormWidget extends StatelessWidget {
         initialValue: description,
         maxLines: 3,
         onChanged: onChangedDescription,
-        decoration: InputDecoration(
+        decoration: const InputDecoration(
             border: UnderlineInputBorder(), labelText: 'Description'),
       );
   Widget buildButton(ctx) => SizedBox(
     width: double.infinity,
     child: ElevatedButton(
         onPressed: onSavedTodo,
-        child: Text("Save"),
+        child: const  Text("Save"),
         style: ButtonStyle(
             alignment: Alignment.center,
             backgroundColor: MaterialStateProperty.all(Color.fromARGB(255, 78, 74, 63)))),

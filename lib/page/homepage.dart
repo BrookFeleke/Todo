@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 
 import 'package:todo/main.dart';
 import '../widget/AddtodoDialog.dart';
+import '../widget/todo_list_widget.dart';
 
 class HomePage extends StatefulWidget {
   const HomePage({Key? key}) : super(key: key);
@@ -15,7 +16,7 @@ class _HomePageState extends State<HomePage> {
   @override
   Widget build(BuildContext context) {
     final tabs = [
-      Container(),
+      TodoListWidget(),
       Container(),
     ];
     return Scaffold(

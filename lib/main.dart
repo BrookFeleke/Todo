@@ -1,4 +1,6 @@
 import 'package:flutter/material.dart';
+import 'package:provider/provider.dart';
+import 'package:todo/provider/todos.dart';
 
 import './page/homepage.dart';
 void main() {
@@ -12,13 +14,16 @@ class MyApp extends StatelessWidget {
     static final String title = 'ToDo App';
   @override
   Widget build(BuildContext context) {
-    return MaterialApp(
-      debugShowCheckedModeBanner: false,
-      title: title,
-      theme: ThemeData(
-        primarySwatch: Colors.blueGrey,
+    return ChangeNotifierProvider(
+      create: (_) => TodosProvider(),
+      child: MaterialApp(
+        debugShowCheckedModeBanner: false,
+        title: title,
+        theme: ThemeData(
+          primarySwatch: Colors.blueGrey,
+        ),
+        home: const HomePage(),
       ),
-      home: const HomePage(),
     );
   }
 }
