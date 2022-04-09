@@ -20,7 +20,12 @@ class _HomePageState extends State<HomePage> {
       Container(),
     ];
     return Scaffold(
+      backgroundColor: Color.fromARGB(255, 221, 218, 218),
       appBar: AppBar(
+        actions: [Padding(
+          padding: const EdgeInsets.all(8.0),
+          child: Icon(Icons.mode_night_rounded),
+        )],
         title: Text(MyApp.title),
       ),
       bottomNavigationBar: BottomNavigationBar(
