@@ -11,7 +11,7 @@ class MyApp extends StatelessWidget {
   const MyApp({Key? key}) : super(key: key);
 
 
-    static final String title = 'ToDo App';
+    static const String title = 'ToDo App';
   @override
   Widget build(BuildContext context) {
     return ChangeNotifierProvider(

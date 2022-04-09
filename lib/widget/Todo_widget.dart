@@ -1,5 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_slidable/flutter_slidable.dart';
+import 'package:provider/provider.dart';
+import 'package:todo/provider/todos.dart';
+import 'package:todo/utils.dart';
 import '../model/todo.dart';
 
 class TodoWidget extends StatelessWidget {
@@ -8,9 +11,9 @@ class TodoWidget extends StatelessWidget {
   const TodoWidget({Key? key, required this.todo}) : super(key: key);
 
   @override
-  Widget build(BuildContext context) =>   ClipRRect(
-    borderRadius: BorderRadius.circular(5),
-    child: Slidable(
+  Widget build(BuildContext context) => ClipRRect(
+        borderRadius: BorderRadius.circular(5),
+        child: Slidable(
           actionPane: SlidableDrawerActionPane(),
           actions: [
             IconSlideAction(
@@ -25,20 +28,28 @@ class TodoWidget extends StatelessWidget {
               icon: Icons.delete,
               color: Color.fromARGB(255, 247, 93, 82),
               caption: 'Delete',
-              onTap: () {},
+              onTap: () => deleteTodo(context, todo!),
             )
           ],
           child: buildTodo(context),
           key: Key(todo!.id.toString()),
         ),
-  );
+      );
   Widget buildTodo(BuildContext context) => Container(
         color: Colors.white,
         padding: const EdgeInsets.all(20),
         child: Row(
           children: [
             Checkbox(
-              onChanged: (_) {},
+              onChanged: (_) {
+                final provider =
+                    Provider.of<TodosProvider>(context, listen: false);
+
+                final isDone = provider.toggleTodoState(todo!);
+
+                Utils.showSnackBar(context,
+                    isDone ? 'Task Completed' : 'Task marked incomplete');
+              },
               value: todo!.isDone,
               activeColor: Theme.of(context).primaryColor,
               checkColor: Colors.white,
@@ -67,4 +78,11 @@ class TodoWidget extends StatelessWidget {
           ],
         ),
       );
+
+  void deleteTodo(BuildContext context, Todo todo) {
+    final provider = Provider.of<TodosProvider>(context, listen: false);
+    provider.removeTodo(todo);
+
+    Utils.showSnackBar(context, 'Deleted the task');
+  }
 }
