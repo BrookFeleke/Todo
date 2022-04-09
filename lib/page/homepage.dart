@@ -18,10 +18,10 @@ class _HomePageState extends State<HomePage> {
   Widget build(BuildContext context) {
     final tabs = [
       const TodoListWidget(),
-      CompletedListWidget(),
+      const CompletedListWidget(),
     ];
     return Scaffold(
-      backgroundColor: Color.fromARGB(255, 221, 218, 218),
+      backgroundColor: const  Color.fromARGB(255, 221, 218, 218),
       appBar: AppBar(
         actions: const  [
          Padding(
@@ -29,7 +29,7 @@ class _HomePageState extends State<HomePage> {
             child: Icon(Icons.mode_night_rounded),
           )
         ],
-        title: Text(MyApp.title),
+        title: const Text(MyApp.title),
       ),
       bottomNavigationBar: BottomNavigationBar(
         backgroundColor: Theme.of(context).primaryColor,
@@ -49,12 +49,12 @@ class _HomePageState extends State<HomePage> {
       ),
       body: tabs[_selectedIndex],
       floatingActionButton: FloatingActionButton(
-        child: Icon(Icons.add),
+        child: const  Icon(Icons.add),
         onPressed: () {
           showDialog(
               context: context,
               builder: (_) {
-                return AddTodoDialogWidget();
+                return const AddTodoDialogWidget();
               },
               barrierDismissible: false);
         },

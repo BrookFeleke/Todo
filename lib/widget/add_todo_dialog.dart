@@ -2,7 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 import 'package:todo/model/todo.dart';
 import 'package:todo/provider/todos.dart';
-import './Todo_form_widget.dart';
+import 'todo_form_widget.dart';
 
 class AddTodoDialogWidget extends StatefulWidget {
   const AddTodoDialogWidget({Key? key}) : super(key: key);

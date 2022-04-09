@@ -44,7 +44,7 @@ class TodoFormWidget extends StatelessWidget {
           return null;
         },
         decoration:
-            InputDecoration(border: UnderlineInputBorder(), labelText: 'Title'),
+            const InputDecoration(border: UnderlineInputBorder(), labelText: 'Title'),
       );
   Widget buildDescription() => TextFormField(
         initialValue: description,
@@ -60,6 +60,6 @@ class TodoFormWidget extends StatelessWidget {
         child: const  Text("Save"),
         style: ButtonStyle(
             alignment: Alignment.center,
-            backgroundColor: MaterialStateProperty.all(Color.fromARGB(255, 78, 74, 63)))),
+            backgroundColor: MaterialStateProperty.all(const Color.fromARGB(255, 78, 74, 63)))),
   );
 }
